@@ -11,16 +11,24 @@ void swap(int* a, int* b)
 }
 void treesort(int* a, int n, int k)
 {
-    int max = a[k], L = a[2 * k + 1], R = a[2 * k + 2], c = 0;
-    if (2 * k + 1 < n && max < L)
+    int c = 0, max = a[k];
+    if (2 * k + 1 < n)
     {
-        max = L;
-        c = 1;
+        int L = a[2 * k + 1];
+        if (max < L)
+        {
+            max = L;
+            c = 1;
+        }
     }
-    if (2 * k + 2 < n && max < R)
+    if (2 * k + 2 < n)
     {
-        max = R;
-        c = 2;
+        int R = a[2 * k + 2];
+        if (max < R)
+        {
+            max = R;
+            c = 2;
+        }
     }
     if (max != a[k])
     {
@@ -29,7 +37,7 @@ void treesort(int* a, int n, int k)
             swap(&a[k], &a[2 * k + 1]);
             treesort(a, n, 2 * k + 1);
         }
-        else
+        else if (c == 2)
         {
             swap(&a[k], &a[2 * k + 2]);
             treesort(a, n, 2 * k + 2);
