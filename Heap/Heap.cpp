@@ -65,9 +65,9 @@ int main()
     int* a = (int*)malloc(sizeof(int) * n);
     for (int i = 0; i < n; i++)
         file >> a[i];
-    int start = GetTickCount64();
+    clock_t start = clock();
     head(a, n);
-    start = GetTickCount64() - start;
+    start = clock() - start;
     std::ofstream file1;
     file1.open("output.txt");
     file1 << n << "\n";

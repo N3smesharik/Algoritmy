@@ -50,6 +50,6 @@ int main()
     file1 << n << "\n";
     for (int i = 0; i < n; i++)
         file1 << a[i] << " ";
-    file1 << "\n" << start * 1000000;
+    file1 << "\n" << start;
     free(a);
 }
