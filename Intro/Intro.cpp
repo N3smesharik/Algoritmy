@@ -52,7 +52,7 @@ void head(int* a, int n)
         treesort(a, i, 0);
     }
 }
-void quick(int* a, int n, int depth)
+void quick(int* a, int n, double depth)
 {
     int l = 0, r = n - 1, P = a[n / 2];
     if (depth <= 0)
@@ -76,9 +76,9 @@ void quick(int* a, int n, int depth)
                 break;
         }
         if (r > 0)
-            quick(a, r + 1, depth - 1);
+            quick(a, r + 1, depth - 1.0);
         if (l < n)
-            quick(&a[l], n - l, depth - 1);
+            quick(&a[l], n - l, depth - 1.0);
     }
 }
 int main()
@@ -87,7 +87,7 @@ int main()
     file.open("input.txt");
     int n;
     file >> n;
-    int depth = 2 * int(pow(n, 1 / 2)) + 1; 
+    double depth = 2 * pow(n, 1 / 2); 
     int* a = (int*)malloc(sizeof(int) * n);
     for (int i = 0; i < n; i++)
         file >> a[i];
