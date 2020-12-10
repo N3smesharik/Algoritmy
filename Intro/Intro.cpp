@@ -87,7 +87,7 @@ int main()
     double depth = 2 * pow(n, 1 / 2);
     int* a = (int*)malloc(sizeof(int) * n);
     for (int i = 0; i < n; i++)
-        std::cin >> a[i];
+        file >> a[i];
     int start = GetTickCount64();
     quick(a, n, depth);
     start = GetTickCount64() - start;
